@@ -1,11 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>home</title>
-    <link rel="stylesheet" href="style/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Fundamentals — To-Do Dashboard</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <script src="JS/main.js" defer></script>
 </head>
 <body>
-<h1>home</h1>
+  <!-- ========== LOGIN (visible first) ========== -->
+  <section id="login-section" class="login-section" aria-label="Login">
+    <div class="login-card card">
+      <h1 class="login-title">Sign in</h1>
+      <p class="login-hint">Demo defaults are filled in for teaching.</p>
+      <form id="login-form" class="login-form" novalidate>
+        <label class="field">
+          <span class="field-label">Email</span>
+          <input
+            type="text"
+            id="login-email"
+            name="email"
+            autocomplete="username"
+            value="ahmed"
+            required
+          >
+        </label>
+        <label class="field">
+          <span class="field-label">Password</span>
+          <input
+            type="password"
+            id="login-password"
+            name="password"
+            autocomplete="current-password"
+            value="12345"
+            required
+          >
+        </label>
+        <p id="login-error" class="form-error" role="alert" hidden></p>
+        <button type="submit" class="btn btn-primary btn-block">Log in</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== APP (hidden until login) ========== -->
+  <section id="app-section" class="app-section" hidden aria-label="To-Do application">
+    <header class="app-header">
+      <h1 class="app-title">To-Do Dashboard</h1>
+      <div class="header-actions">
+        <button type="button" id="theme-toggle" class="btn btn-ghost" aria-pressed="false" title="Toggle dark mode">
+          Dark mode
+        </button>
+        <button type="button" id="logout-btn" class="btn btn-outline">Logout</button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <div class="task-input-row card">
+        <label class="field field-inline">
+          <span class="visually-hidden">New task</span>
+          <input
+            type="text"
+            id="task-input"
+            placeholder="What needs to be done?"
+            maxlength="280"
+            autocomplete="off"
+          >
+        </label>
+        <button type="button" id="add-task-btn" class="btn btn-primary" disabled>Add</button>
+      </div>
+
+      <div id="task-list" class="task-list" role="list" aria-live="polite"></div>
+    </main>
+  </section>
 </body>
 </html>
